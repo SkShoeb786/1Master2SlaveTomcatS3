@@ -25,7 +25,7 @@ pipeline{
 						}
 					}
 					steps{
-						sh 'sudo aws s3 cp s3://sk.buck/gameoflife /home/ec2-user/webserver/apache-tomcat-9.0.67/webapps/'
+						sh 'sudo aws s3 cp s3://sk.buck/gameoflife.war /home/ec2-user/webserver/apache-tomcat-9.0.67/webapps/'
 					}
 				}
 				stage('copy s3 to slave2'){
@@ -35,7 +35,7 @@ pipeline{
 						}
 					}
 					steps{
-						sh 'sudo aws s3 cp s3://sk.buck/gameoflife /home/ec2-user/webserver/apache-tomcat-9.0.67/webapps/'
+						sh 'sudo aws s3 cp s3://sk.buck/gameoflife.war /home/ec2-user/webserver/apache-tomcat-9.0.67/webapps/'
 					}
 				}
 			}
