@@ -25,7 +25,10 @@ pipeline{
 						}
 					}
 					steps{
+						sh 'sudo rm -rf /home/ec2-user/webserver/apache-tomcat-9.0.67/webapps/gameoflife*'
 						sh 'sudo aws s3 cp s3://sk.buck/gameoflife.war /home/ec2-user/webserver/apache-tomcat-9.0.67/webapps/'
+						sh 'sudo ./webserver/apache-tomcat-9.0.67/bin/shutdown.sh'
+						sh 'sudo ./webserver/apache-tomcat-9.0.67/bin/startup.sh'
 					}
 				}
 				stage('copy s3 to slave2'){
@@ -35,7 +38,10 @@ pipeline{
 						}
 					}
 					steps{
+						sh 'sudo rm -rf /home/ec2-user/webserver/apache-tomcat-9.0.67/webapps/gameoflife*'
 						sh 'sudo aws s3 cp s3://sk.buck/gameoflife.war /home/ec2-user/webserver/apache-tomcat-9.0.67/webapps/'
+						sh 'sudo ./webserver/apache-tomcat-9.0.67/bin/shutdown.sh'
+						sh 'sudo ./webserver/apache-tomcat-9.0.67/bin/startup.sh'
 					}
 				}
 			}
